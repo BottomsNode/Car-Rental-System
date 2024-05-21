@@ -62,53 +62,53 @@ The Car Rental System is a Java-based application that allows users to view, boo
 
 # Database Schema
 ## Users Table
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    email VARCHAR(255) UNIQUE,
-    phoneNumber VARCHAR(255),
-    password VARCHAR(255)
-);
+ - CREATE TABLE users (
+ - id INT AUTO_INCREMENT PRIMARY KEY,
+ - name VARCHAR(255),
+ - email VARCHAR(255) UNIQUE,
+ - phoneNumber VARCHAR(255),
+ - password VARCHAR(255)
+ - );
 
 ## Cars Table
-CREATE TABLE cars (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    make VARCHAR(255),
-    model VARCHAR(255),
-    year INT,
-    price DOUBLE
-);
+- CREATE TABLE cars (
+- id INT AUTO_INCREMENT PRIMARY KEY,
+- make VARCHAR(255),
+- model VARCHAR(255),
+- year INT,\
+- price DOUBLE
+- );
 
 ## Bookings Table
-CREATE TABLE bookings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    car_id INT,
-    booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (car_id) REFERENCES cars(id)
-);
+- CREATE TABLE bookings (
+- id INT AUTO_INCREMENT PRIMARY KEY,
+- user_id INT,
+- car_id INT,
+- booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+- FOREIGN KEY (user_id) REFERENCES users(id),
+- FOREIGN KEY (car_id) REFERENCES cars(id)
+- );
 
 ## Payments Table
-CREATE TABLE payments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    booking_id INT,
-    amount DOUBLE,
-    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (booking_id) REFERENCES bookings(id)
-);
+- CREATE TABLE payments (
+- id INT AUTO_INCREMENT PRIMARY KEY,
+- booking_id INT,
+- amount DOUBLE,
+- payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+- FOREIGN KEY (booking_id) REFERENCES bookings(id)
+- );
 
 ## Reviews Table
-CREATE TABLE reviews (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    car_id INT,
-    rating INT,
-    review_text TEXT,
-    review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (car_id) REFERENCES cars(id)
-);
+- CREATE TABLE reviews (
+- id INT AUTO_INCREMENT PRIMARY KEY,
+- user_id INT,
+- car_id INT,
+- rating INT,
+- review_text TEXT,
+- review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+- FOREIGN KEY (user_id) REFERENCES users(id),
+- FOREIGN KEY (car_id) REFERENCES cars(id)
+- );
 
 # Thank You
 
